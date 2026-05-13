@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)file:///C:/Users/akucukavci/Downloads/document%20(1).html -->
+<html lang="tr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yasemin &amp; Özcan — Nikah Daveti</title>
+  <link href="./Yasemin &amp; Özcan — Nikah Daveti_files/css2" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sky:    #ddeeff;
+      --pale:   #eef5ff;
+      --blue:   #5b8ecf;
+      --cobalt: #2d5fa3;
+      --navy:   #1a3560;
+      --powder: #a8c8f0;
+      --mist:   #c5daf5;
+      --white:  #f8fbff;
+      --gold:   #b8a06a;
+      --text:   #162843;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--text);
+      font-family: 'Raleway', sans-serif;
+      overflow-x: hidden;
+    }
+
+    #petal-canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100svh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 5rem 2rem 4rem;
+      overflow: hidden;
+      background: linear-gradient(170deg, #e8f3ff 0%, #d0e8ff 40%, #c4daf8 100%);
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.45;
+      animation: drift 12s ease-in-out infinite;
+    }
+    .orb-1 { width:600px;height:600px;background:radial-gradient(circle,#89bff0,transparent 70%);top:-200px;left:-200px;animation-delay:0s; }
+    .orb-2 { width:500px;height:500px;background:radial-gradient(circle,#aad4ff,transparent 70%);bottom:-150px;right:-150px;animation-delay:-6s; }
+    .orb-3 { width:350px;height:350px;background:radial-gradient(circle,#c8e4ff,transparent 70%);top:30%;left:60%;animation-delay:-3s; }
+
+    @keyframes drift {
+      0%,100% { transform:translate(0,0) scale(1); }
+      33%      { transform:translate(30px,-20px) scale(1.05); }
+      66%      { transform:translate(-20px,30px) scale(0.97); }
+    }
+
+    .corner-floral {
+      position: absolute;
+      opacity: 0.35;
+    }
+    .corner-floral.tl { top:0;left:0; animation: sway1 8s ease-in-out infinite; }
+    .corner-floral.tr { top:0;right:0; transform:scaleX(-1); animation: sway2 8s ease-in-out infinite; animation-delay:-4s; }
+    .corner-floral.bl { bottom:0;left:0; transform:scaleY(-1); animation: sway3 8s ease-in-out infinite; animation-delay:-2s; }
+    .corner-floral.br { bottom:0;right:0; transform:scale(-1,-1); animation: sway4 8s ease-in-out infinite; animation-delay:-6s; }
+
+    @keyframes sway1 { 0%,100%{transform:rotate(-3deg);}50%{transform:rotate(3deg);} }
+    @keyframes sway2 { 0%,100%{transform:scaleX(-1) rotate(-3deg);}50%{transform:scaleX(-1) rotate(3deg);} }
+    @keyframes sway3 { 0%,100%{transform:scaleY(-1) rotate(-3deg);}50%{transform:scaleY(-1) rotate(3deg);} }
+    @keyframes sway4 { 0%,100%{transform:scale(-1,-1) rotate(-3deg);}50%{transform:scale(-1,-1) rotate(3deg);} }
+
+    .hero-eyebrow {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 200;
+      font-size: clamp(0.7rem,1.5vw,0.85rem);
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: var(--cobalt);
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.4s;
+      position: relative; z-index: 2;
+    }
+
+    .hero-names {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(5.5rem,20vw,14rem);
+      font-weight: 400;
+      line-height: 0.88;
+      color: var(--navy);
+      opacity: 0;
+      animation: fadeUp 1.2s ease forwards 0.7s;
+      position: relative; z-index: 2;
+      text-shadow: 0 4px 30px rgba(45,95,163,0.15);
+    }
+
+    .hero-amp {
+      display: block;
+      font-size: 0.5em;
+      color: var(--blue);
+      margin: 0.1em 0;
+    }
+
+    .hero-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 2.5rem auto;
+      width: min(400px,85%);
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 1s;
+      position: relative; z-index: 2;
+    }
+    .hdl { flex:1; height:1px; background:linear-gradient(to right,transparent,var(--blue),transparent); }
+    .hdb  { font-size:1.4rem; flex-shrink:0; animation:spin 20s linear infinite; }
+    @keyframes spin { to { transform:rotate(360deg); } }
+
+    .hero-invite {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1.4rem,3.5vw,2.2rem);
+      color: var(--cobalt);
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 1.2s;
+      position: relative; z-index: 2;
+      line-height: 1.5;
+    }
+
+    /* DETAILS */
+    .details-section {
+      padding: 6rem 2rem;
+      background: linear-gradient(180deg,var(--white) 0%,var(--pale) 100%);
+      position: relative;
+    }
+
+    .details-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem 3rem;
+      text-align: center;
+    }
+    @media (max-width:620px) { .details-inner { grid-template-columns:1fr; } }
+
+    .detail-card {
+      background: rgba(255,255,255,0.8);
+      border: 1px solid var(--mist);
+      border-radius: 2px;
+      padding: 2.5rem 1.5rem;
+      box-shadow: 0 4px 30px rgba(91,142,207,0.08);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .detail-card.visible { opacity:1; transform:translateY(0); }
+    .detail-card:nth-child(1) { transition-delay:0s; }
+    .detail-card:nth-child(2) { transition-delay:0.15s; }
+    .detail-card:nth-child(3) { transition-delay:0.3s; }
+
+    .detail-icon { font-size:2.2rem;display:block;margin-bottom:1rem;animation:pulse 3s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{transform:scale(1);}50%{transform:scale(1.08);} }
+
+    .detail-label {
+      font-family:'Raleway',sans-serif;font-weight:300;
+      font-size:0.6rem;letter-spacing:0.4em;text-transform:uppercase;
+      color:var(--blue);margin-bottom:0.8rem;
+    }
+    .detail-main {
+      font-family:'Playfair Display',serif;
+      font-size:clamp(1.5rem,3vw,2rem);
+      font-weight:400;color:var(--navy);line-height:1.25;
+    }
+    .detail-sub {
+      font-family:'Raleway',sans-serif;font-weight:300;
+      font-size:0.8rem;color:var(--blue);margin-top:0.5rem;letter-spacing:0.1em;
+    }
+
+    /* COUNTDOWN */
+    .countdown-section {
+      background: linear-gradient(135deg,var(--navy) 0%,var(--cobalt) 60%,#3a72b8 100%);
+      padding: 6rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .countdown-label {
+      font-family:'Raleway',sans-serif;font-weight:200;
+      font-size:clamp(0.65rem,1.5vw,0.8rem);letter-spacing:0.5em;
+      text-transform:uppercase;color:var(--powder);
+      margin-bottom:3.5rem;position:relative;
+    }
+    .countdown-grid {
+      display:flex;justify-content:center;align-items:flex-start;
+      gap:1.5rem;flex-wrap:wrap;position:relative;
+    }
+    .count-block {
+      display:flex;flex-direction:column;align-items:center;
+      background:rgba(255,255,255,0.07);
+      border:1px solid rgba(255,255,255,0.12);
+      border-radius:4px;padding:2rem 2.5rem;min-width:110px;
+    }
+    .count-num {
+      font-family:'Playfair Display',serif;
+      font-size:clamp(3.5rem,10vw,5.5rem);
+      font-weight:700;color:#fff;line-height:1;min-width:2ch;text-align:center;
+    }
+    .count-num.flip { animation:numFlip 0.3s ease; }
+    @keyframes numFlip {
+      0%{transform:translateY(-8px);opacity:0;}
+      100%{transform:translateY(0);opacity:1;}
+    }
+    .count-label {
+      font-family:'Raleway',sans-serif;font-weight:300;
+      font-size:0.55rem;letter-spacing:0.35em;text-transform:uppercase;
+      color:var(--powder);margin-top:0.8rem;
+    }
+    .count-sep {
+      font-size:3rem;color:rgba(255,255,255,0.35);line-height:1;
+      padding-top:1.2rem;animation:blink 2s ease-in-out infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:0.3;}50%{opacity:0.7;} }
+
+    /* VENUE */
+    .venue-section {
+      padding:7rem 2rem;text-align:center;background:var(--white);
+    }
+    .section-eyebrow {
+      font-family:'Raleway',sans-serif;font-weight:300;
+      font-size:0.65rem;letter-spacing:0.45em;text-transform:uppercase;
+      color:var(--blue);margin-bottom:1.2rem;
+    }
+    .section-title {
+      font-family:'Playfair Display',serif;font-style:italic;
+      font-size:clamp(2.5rem,7vw,4.5rem);font-weight:400;
+      color:var(--navy);margin-bottom:1.5rem;line-height:1.1;
+    }
+    .blue-divider {
+      width:60px;height:2px;
+      background:linear-gradient(to right,var(--blue),var(--cobalt));
+      margin:0 auto 2rem;border-radius:2px;
+    }
+    .venue-detail {
+      font-family:'Playfair Display',serif;
+      font-size:clamp(1.2rem,2.5vw,1.6rem);
+      color:var(--blue);font-style:italic;margin-bottom:2.5rem;
+    }
+    .map-btn {
+      display:inline-flex;align-items:center;gap:0.8rem;
+      background:var(--navy);color:#fff;text-decoration:none;
+      padding:1.1rem 2.8rem;
+      font-family:'Raleway',sans-serif;font-weight:300;
+      font-size:0.65rem;letter-spacing:0.35em;text-transform:uppercase;
+      border-radius:2px;transition:background 0.3s,transform 0.2s;
+      position:relative;overflow:hidden;
+    }
+    .map-btn::before {
+      content:'';position:absolute;inset:0;
+      background:linear-gradient(135deg,var(--cobalt),var(--blue));
+      opacity:0;transition:opacity 0.3s;
+    }
+    .map-btn:hover::before { opacity:1; }
+    .map-btn:hover { transform:translateY(-2px); }
+    .map-btn span { position:relative;z-index:1; }
+
+    /* FOOTER */
+    footer {
+      background:linear-gradient(180deg,var(--pale) 0%,var(--sky) 100%);
+      padding:5rem 2rem 4rem;text-align:center;position:relative;overflow:hidden;
+    }
+    .footer-floral {
+      font-size:2rem;letter-spacing:1.5rem;opacity:0.5;
+      margin-bottom:2rem;display:block;animation:sway1 6s ease-in-out infinite;
+    }
+    .footer-names {
+      font-family:'Great Vibes',cursive;
+      font-size:clamp(3rem,10vw,5.5rem);color:var(--navy);line-height:1;margin-bottom:1.2rem;
+    }
+    .footer-date {
+      font-family:'Raleway',sans-serif;font-weight:200;
+      font-size:0.7rem;letter-spacing:0.55em;text-transform:uppercase;color:var(--cobalt);
+      margin-top:1rem;
+    }
+
+    @keyframes fadeUp {
+      from{opacity:0;transform:translateY(28px);}
+      to{opacity:1;transform:translateY(0);}
+    }
+
+    .reveal {
+      opacity:0;transform:translateY(30px);
+      transition:opacity 0.9s ease,transform 0.9s ease;
+    }
+    .reveal.visible { opacity:1;transform:translateY(0); }
+  </style>
+</head>
+<body>
+
+<canvas id="petal-canvas" width="1536" height="730"></canvas>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <!-- Corner florals -->
+  <svg class="corner-floral tl" width="200" height="200" viewBox="0 0 200 200" fill="none">
+    <path d="M10 190 Q35 110 115 80 Q85 160 10 190Z" fill="#5b8ecf" opacity="0.3"></path>
+    <path d="M10 190 Q80 150 125 65 Q60 145 10 190Z" fill="#2d5fa3" opacity="0.2"></path>
+    <circle cx="115" cy="80" r="9" fill="#5b8ecf" opacity="0.4"></circle>
+    <circle cx="78" cy="122" r="6" fill="#89bff0" opacity="0.5"></circle>
+    <circle cx="46" cy="158" r="7" fill="#5b8ecf" opacity="0.35"></circle>
+    <path d="M100 74 Q115 54 130 74 Q115 94 100 74Z" fill="#aad4ff" opacity="0.55"></path>
+    <path d="M63 116 Q78 96 93 116 Q78 136 63 116Z" fill="#aad4ff" opacity="0.45"></path>
+    <path d="M31 152 Q46 132 61 152 Q46 172 31 152Z" fill="#aad4ff" opacity="0.5"></path>
+    <path d="M12 188 Q38 158 78 122 Q118 86 120 80" stroke="#5b8ecf" stroke-width="1.5" fill="none" opacity="0.35" stroke-dasharray="4 4"></path>
+  </svg>
+  <svg class="corner-floral tr" width="200" height="200" viewBox="0 0 200 200" fill="none">
+    <path d="M10 190 Q35 110 115 80 Q85 160 10 190Z" fill="#5b8ecf" opacity="0.3"></path>
+    <path d="M10 190 Q80 150 125 65 Q60 145 10 190Z" fill="#2d5fa3" opacity="0.2"></path>
+    <circle cx="115" cy="80" r="9" fill="#5b8ecf" opacity="0.4"></circle>
+    <circle cx="78" cy="122" r="6" fill="#89bff0" opacity="0.5"></circle>
+    <circle cx="46" cy="158" r="7" fill="#5b8ecf" opacity="0.35"></circle>
+    <path d="M100 74 Q115 54 130 74 Q115 94 100 74Z" fill="#aad4ff" opacity="0.55"></path>
+    <path d="M63 116 Q78 96 93 116 Q78 136 63 116Z" fill="#aad4ff" opacity="0.45"></path>
+    <path d="M31 152 Q46 132 61 152 Q46 172 31 152Z" fill="#aad4ff" opacity="0.5"></path>
+    <path d="M12 188 Q38 158 78 122 Q118 86 120 80" stroke="#5b8ecf" stroke-width="1.5" fill="none" opacity="0.35" stroke-dasharray="4 4"></path>
+  </svg>
+  <svg class="corner-floral bl" width="200" height="200" viewBox="0 0 200 200" fill="none">
+    <path d="M10 190 Q35 110 115 80 Q85 160 10 190Z" fill="#5b8ecf" opacity="0.3"></path>
+    <path d="M10 190 Q80 150 125 65 Q60 145 10 190Z" fill="#2d5fa3" opacity="0.2"></path>
+    <circle cx="115" cy="80" r="9" fill="#5b8ecf" opacity="0.4"></circle>
+    <circle cx="78" cy="122" r="6" fill="#89bff0" opacity="0.5"></circle>
+    <circle cx="46" cy="158" r="7" fill="#5b8ecf" opacity="0.35"></circle>
+    <path d="M100 74 Q115 54 130 74 Q115 94 100 74Z" fill="#aad4ff" opacity="0.55"></path>
+    <path d="M63 116 Q78 96 93 116 Q78 136 63 116Z" fill="#aad4ff" opacity="0.45"></path>
+    <path d="M31 152 Q46 132 61 152 Q46 172 31 152Z" fill="#aad4ff" opacity="0.5"></path>
+    <path d="M12 188 Q38 158 78 122 Q118 86 120 80" stroke="#5b8ecf" stroke-width="1.5" fill="none" opacity="0.35" stroke-dasharray="4 4"></path>
+  </svg>
+  <svg class="corner-floral br" width="200" height="200" viewBox="0 0 200 200" fill="none">
+    <path d="M10 190 Q35 110 115 80 Q85 160 10 190Z" fill="#5b8ecf" opacity="0.3"></path>
+    <path d="M10 190 Q80 150 125 65 Q60 145 10 190Z" fill="#2d5fa3" opacity="0.2"></path>
+    <circle cx="115" cy="80" r="9" fill="#5b8ecf" opacity="0.4"></circle>
+    <circle cx="78" cy="122" r="6" fill="#89bff0" opacity="0.5"></circle>
+    <circle cx="46" cy="158" r="7" fill="#5b8ecf" opacity="0.35"></circle>
+    <path d="M100 74 Q115 54 130 74 Q115 94 100 74Z" fill="#aad4ff" opacity="0.55"></path>
+    <path d="M63 116 Q78 96 93 116 Q78 136 63 116Z" fill="#aad4ff" opacity="0.45"></path>
+    <path d="M31 152 Q46 132 61 152 Q46 172 31 152Z" fill="#aad4ff" opacity="0.5"></path>
+    <path d="M12 188 Q38 158 78 122 Q118 86 120 80" stroke="#5b8ecf" stroke-width="1.5" fill="none" opacity="0.35" stroke-dasharray="4 4"></path>
+  </svg>
+
+  <p class="hero-eyebrow">Nikah Davetiyesi &nbsp;·&nbsp; 2026</p>
+
+  <h1 class="hero-names">
+    Yasemin
+    <span class="hero-amp">&amp;</span>
+    Özcan
+  </h1>
+
+  <div class="hero-divider">
+    <div class="hdl"></div>
+    <span class="hdb">🌸</span>
+    <div class="hdl"></div>
+  </div>
+
+  <p class="hero-invite">Nikah törenimize davetlisiniz!</p>
+</section>
+
+<!-- DETAILS -->
+<section class="details-section">
+  <div class="details-inner">
+    <div class="detail-card visible">
+      <span class="detail-icon">🌸</span>
+      <p class="detail-label">Tarih</p>
+      <p class="detail-main">24 Mayıs<br>2026</p>
+      <p class="detail-sub">Pazar</p>
+    </div>
+    <div class="detail-card visible">
+      <span class="detail-icon">🕑</span>
+      <p class="detail-label">Saat</p>
+      <p class="detail-main">14:00</p>
+      <p class="detail-sub">Kapılar 13:30'da açılır</p>
+    </div>
+    <div class="detail-card visible">
+      <span class="detail-icon">🏛️</span>
+      <p class="detail-label">Mekan</p>
+      <p class="detail-main">Defne<br>Nikah Salonu</p>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTDOWN -->
+<section class="countdown-section">
+  <p class="countdown-label">— Mutlu güne kalan süre —</p>
+  <div class="countdown-grid">
+    <div class="count-block">
+      <span class="count-num flip" id="days">10</span>
+      <span class="count-label">Gün</span>
+    </div>
+    <div class="count-sep">:</div>
+    <div class="count-block">
+      <span class="count-num flip" id="hours">17</span>
+      <span class="count-label">Saat</span>
+    </div>
+    <div class="count-sep">:</div>
+    <div class="count-block">
+      <span class="count-num flip" id="minutes">49</span>
+      <span class="count-label">Dakika</span>
+    </div>
+    <div class="count-sep">:</div>
+    <div class="count-block">
+      <span class="count-num flip" id="seconds">51</span>
+      <span class="count-label">Saniye</span>
+    </div>
+  </div>
+</section>
+
+<!-- VENUE -->
+<section class="venue-section">
+  <div class="reveal visible">
+    <p class="section-eyebrow">Düğün Mekanı</p>
+    <h2 class="section-title">Defne Nikah Salonu</h2>
+    <div class="blue-divider"></div>
+    <p class="venue-detail">24 Mayıs 2026 &nbsp;·&nbsp; Saat 14:00</p>
+    <a class="map-btn" href="https://www.google.com/maps/search/Defne+Nikah+Salonu" target="_blank" rel="noopener">
+      <span>🗺 &nbsp;Yol Tarifi Al</span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-floral">🌸 🌼 🌸</span>
+  <p class="footer-names">Yasemin &amp; Özcan</p>
+  <p class="footer-date">24 · 05 · 2026</p>
+</footer>
+
+<script>
+/* FLOATING PETALS */
+(function() {
+  const canvas = document.getElementById('petal-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, petals = [];
+  const COLORS = ['#aad4ff','#89bff0','#c8e4ff','#5b8ecf','#ddeeff','#b8d8f8'];
+  const COUNT  = 28;
+
+  function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  window.addEventListener('resize', resize);
+  resize();
+
+  function rand(a, b) { return a + Math.random() * (b - a); }
+
+  function makePetal() {
+    return {
+      x: rand(0, W), y: rand(-200, -20),
+      r: rand(5, 13), vx: rand(-0.6, 0.6), vy: rand(0.8, 2.2),
+      angle: rand(0, Math.PI * 2), va: rand(-0.025, 0.025),
+      color: COLORS[Math.floor(Math.random() * COLORS.length)],
+      alpha: rand(0.35, 0.75),
+      type: Math.random() > 0.5 ? 'petal' : 'circle'
+    };
+  }
+
+  for (let i = 0; i < COUNT; i++) {
+    const p = makePetal(); p.y = rand(0, H); petals.push(p);
+  }
+
+  function drawPetal(p) {
+    ctx.save();
+    ctx.globalAlpha = p.alpha;
+    ctx.translate(p.x, p.y);
+    ctx.rotate(p.angle);
+    ctx.fillStyle = p.color;
+    if (p.type === 'circle') {
+      ctx.beginPath();
+      ctx.ellipse(0, 0, p.r * 1.4, p.r * 0.8, 0, 0, Math.PI * 2);
+      ctx.fill();
+    } else {
+      ctx.beginPath();
+      ctx.moveTo(0, -p.r);
+      ctx.quadraticCurveTo(p.r * 0.9, -p.r * 0.3, 0, p.r);
+      ctx.quadraticCurveTo(-p.r * 0.9, -p.r * 0.3, 0, -p.r);
+      ctx.fill();
+    }
+    ctx.restore();
+  }
+
+  function loop() {
+    ctx.clearRect(0, 0, W, H);
+    petals.forEach(p => {
+      p.x += p.vx + Math.sin(p.y * 0.01) * 0.3;
+      p.y += p.vy;
+      p.angle += p.va;
+      if (p.y > H + 30) { Object.assign(p, makePetal()); p.y = -20; }
+      drawPetal(p);
+    });
+    requestAnimationFrame(loop);
+  }
+  loop();
+})();
+
+/* COUNTDOWN */
+const weddingDate = new Date('2026-05-24T14:00:00');
+const prevVals = { days:'', hours:'', minutes:'', seconds:'' };
+
+function pad(n) { return String(n).padStart(2, '0'); }
+
+function tick() {
+  const diff = weddingDate - new Date();
+  if (diff <= 0) return;
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000)  / 60000);
+  const s = Math.floor((diff % 60000)    / 1000);
+
+  [['days',d],['hours',h],['minutes',m],['seconds',s]].forEach(([id,val]) => {
+    const str = pad(val);
+    const el  = document.getElementById(id);
+    if (str !== prevVals[id]) {
+      el.textContent = str;
+      el.classList.remove('flip');
+      void el.offsetWidth;
+      el.classList.add('flip');
+      prevVals[id] = str;
+    }
+  });
+}
+tick();
+setInterval(tick, 1000);
+
+/* SCROLL REVEAL */
+const targets = document.querySelectorAll('.reveal, .detail-card');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+  });
+}, { threshold: 0.12 });
+targets.forEach(el => io.observe(el));
+</script>
+
+</body></html>
